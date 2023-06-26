@@ -82,19 +82,19 @@ int spreadVirus(){
 	return countingSafety();
 }
 
-void solution(int y, int x, int cnt){
+void solution(int cnt){
 	if(cnt == 3){
 		copy();
 		result = max(result, spreadVirus());
 		return;
 	}
 
-	for(int i=y;i<=n;i++){
-		for(int j=x;j<=m;j++){
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
 			if(board[i][j] == 0){
 				board[i][j] = 1;
 				
-				solution(i, j, cnt+1);
+				solution(cnt+1);
 
 				board[i][j] = 0;
 			}
@@ -105,7 +105,7 @@ void solution(int y, int x, int cnt){
 int main(){
 	fastio;	
 	input();
-	solution(1, 1, 0);
+	solution(0);
 	cout << result << endl;
 
 	return 0;
