@@ -68,10 +68,10 @@ int solution(){
 	while(k--){
 		int number, direct, chk = 0;
 		cin >> number >> direct;
-		// 시계 방향
+		int seq_1 = checkRight(number);
+		int seq_2 = checkLeft(number);
+
 		if(direct == 1){
-			int seq_1 = checkRight(number);
-			int seq_2 = checkLeft(number);
 			for(int i=number;i<=number+seq_1;i++){
 				if(chk & 1) rotateLeft(i);
 				else rotateRight(i);
@@ -85,8 +85,6 @@ int solution(){
 				chk++;
 			}
 		} else{	
-			int seq_1 = checkRight(number);
-			int seq_2 = checkLeft(number);
 			for(int i=number;i<=number+seq_1;i++){
 				if(chk & 1) rotateRight(i);
 				else rotateLeft(i);
